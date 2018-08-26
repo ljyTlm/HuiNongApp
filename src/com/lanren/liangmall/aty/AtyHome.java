@@ -70,15 +70,16 @@ public class AtyHome extends Activity {
 		reListView = (ListView) findViewById(R.id.zhuye_lv_remen);
 
 		// 热门单件查看更多监听事件
-		gengd = (RadioButton) findViewById(R.id.zhuye_img_add);
-		gengd.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(AtyHome.this, AtyFenLei.class);
-				startActivity(i);
-			}
-		});
+//		gengd = (RadioButton) findViewById(R.id.zhuye_img_add);
+//		gengd.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				Intent i = new Intent(AtyHome.this, AtyFenLei.class);
+//				startActivity(i);
+//			}
+//		});
+		
 		setLinstener();
 		initData();
 		JsonInfo();
