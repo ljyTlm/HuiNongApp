@@ -153,13 +153,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 	@Override
 	public void onClick(View view) {
-		if (view == info) {
-			startActivity(new Intent(MainActivity.this, AtyLogin.class));
+		try {
+			ResideMenuInfo v = (ResideMenuInfo)view;
 			Toast.makeText(MainActivity.this, "登陆", 1).show();
-		} else if (view.getId() == R.id.rbtn_img) {
-			startActivity(new Intent(MainActivity.this, AtySou.class));
+			startActivity(new Intent(MainActivity.this, AtyLogin.class));
+			return;
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		else if (view == itemHuiyuan) {
+		if (view.getId() == R.id.rbtn_img) {
+			startActivity(new Intent(MainActivity.this, AtySou.class));
+		} else if (view == itemHuiyuan) {
 			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
 		} else if (view == itemZhuangban) {
 			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();

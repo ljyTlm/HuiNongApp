@@ -53,8 +53,8 @@ public class AtyLogin extends Activity implements OnClickListener {
 		setContentView(R.layout.aty_login);
 
 		loginbtn = (Button) findViewById(R.id.button1);
-		edtname = (EditText) findViewById(R.id.editText1);
-		edtpwd = (EditText) findViewById(R.id.editText2);
+		edtname = (EditText) findViewById(R.id.name);
+		edtpwd = (EditText) findViewById(R.id.passwd);
 
 		loginbtn.setOnClickListener(this);
 		

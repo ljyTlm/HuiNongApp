@@ -546,8 +546,6 @@ public final class R {
         public static final int aty_gouwu_tv_price=0x7f080014;
         public static final int button1=0x7f080017;
         public static final int dot_layout=0x7f080028;
-        public static final int editText1=0x7f080015;
-        public static final int editText2=0x7f080016;
         public static final int fenlei_img=0x7f080023;
         public static final int fenlei_lv=0x7f080021;
         public static final int fenlei_nanku=0x7f08000b;
@@ -570,6 +568,8 @@ public final class R {
         public static final int layout_setting=0x7f080034;
         public static final int layout_top=0x7f080000;
         public static final int main_fragment=0x7f080003;
+        public static final int name=0x7f080015;
+        public static final int passwd=0x7f080016;
         public static final int rbtn_img=0x7f080002;
         public static final int rl_left_menu=0x7f080031;
         public static final int rl_right_menu=0x7f080035;
