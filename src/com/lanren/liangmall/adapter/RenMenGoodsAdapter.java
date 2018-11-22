@@ -41,24 +41,7 @@ public class RenMenGoodsAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		RenMen rm = null;
-		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.reme_home_itme, null);
-			rm = new RenMen();
-
-			rm.img = (SmartImageView) convertView.findViewById(R.id.zhuye_img_remen);
-			rm.goodsName = (TextView) convertView.findViewById(R.id.zhuye_tv_name);
-			rm.dName = (TextView) convertView.findViewById(R.id.zhuye_tv_dname);
-			rm.salesName = (TextView) convertView.findViewById(R.id.zhuye_tv_sales);
-			convertView.setTag(rm);
-		} else {
-			rm = (RenMen) convertView.getTag();
-		}
-		GoodsEntity ge = JsonList.get(position);
-		rm.img.setImageUrl(NetHttpData.dataIp + "/LiAng/images/" + ge.getsDrawable());
-		rm.goodsName.setText(ge.getsName());
-		rm.dName.setText(ge.getsSeller());
-		rm.salesName.setText(ge.getsSales());
+		
 
 		return convertView;
 	}

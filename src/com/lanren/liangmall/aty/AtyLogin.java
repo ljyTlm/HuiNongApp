@@ -69,17 +69,18 @@ public class AtyLogin extends Activity implements OnClickListener {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				Toast.makeText(AtyLogin.this, "ÍøÂçÁ¬½ÓÊ§°Ü£¡"+errorResponse, 1).show();
 				super.onFailure(statusCode, headers, throwable, errorResponse);
 			}
 
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				int success = response.optInt("success");
-				if (success == 1) {
+				int status = response.optInt("status");
+				if (status == 1) {
 					Intent i = new Intent(AtyLogin.this, MainActivity.class);
 					startActivity(i);
 					SaveUser();
-				} else if (success == 0) {
+				} else if (status == 0) {
 					Toast.makeText(AtyLogin.this, "ÕËºÅ»òÃÜÂë´íÎó,ÇëÖØĞÂµÇÂ½£¡", 1).show();
 				}
 			}
