@@ -41,10 +41,10 @@ public class AtyFenLei extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fenlei_itme);
-		String[] txt = new String[]{"时尚男装","潮流女装","韩版男裤","休闲女裤","潮男皮靴","时尚中筒靴"};
+		String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","在线农业专家咨询","前端最新农业技术"};
 
-		int[] images = new int[] { R.drawable.heiyurongfu, R.drawable.zhenzhishan, 
-				R.drawable.nanniuzai,R.drawable.qianbiku, R.drawable.heipixue, R.drawable.zhongtongxue };
+		int[] images = new int[] { R.drawable.hangqing, R.drawable.jiaoyi, 
+				R.drawable.zixun,R.drawable.jishu};
 		//将数据放到集合中去
 		List<FenLeiEntity> list = new  ArrayList<FenLeiEntity>();		
 		for (int i = 0; i < txt.length; i++) {

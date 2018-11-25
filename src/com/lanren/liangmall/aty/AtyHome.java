@@ -79,7 +79,7 @@ public class AtyHome extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.home_itme); //先初始化整个页面布局
+		setContentView(R.layout.home_itme); //先初始化整个页面布局 这个东西就是将class类和xml文件建立映射关系
 		mViewPager = (ViewPager) findViewById(R.id.viewPager);
 		mIntroTv = (TextView) findViewById(R.id.tv_intro);
 		mDotLayout = (LinearLayout) findViewById(R.id.dot_layout);
@@ -187,9 +187,6 @@ public class AtyHome extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				NewsEntity news = JsonList.get(position);
-				for (int i = 0; i <5; i++) {
-					Log.v("emm", "打开网页之前还好使");
-				}
 				Intent intent = new Intent(AtyHome.this, AtyWebView.class);
 				intent.putExtra("url", news.getNewsUrl());
 				startActivity(intent);
