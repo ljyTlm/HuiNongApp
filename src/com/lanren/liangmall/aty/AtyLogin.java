@@ -46,13 +46,15 @@ public class AtyLogin extends Activity implements OnClickListener {
 	private EditText edtname, edtpwd;
 	private ProgressDialog dialog;
 	private String username, userpwd;
+	private Button registbtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aty_login);
 
-		loginbtn = (Button) findViewById(R.id.button1);
+		loginbtn = (Button) findViewById(R.id.login);
+		registbtn = (Button)findViewById(R.id.regist);
 		edtname = (EditText) findViewById(R.id.name);
 		edtpwd = (EditText) findViewById(R.id.passwd);
 
