@@ -59,14 +59,22 @@ public class AtyLogin extends Activity implements OnClickListener {
 		edtpwd = (EditText) findViewById(R.id.passwd);
 
 		loginbtn.setOnClickListener(this);
-		
+		registbtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(AtyLogin.this, AtyWebView.class);
+				intent.putExtra("url", NetHttpData.getHttpDao().dataIp+"/HuiNong/Register");
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
 	public void onClick(View v) {
 		username = edtname.getText().toString();
 		userpwd = edtpwd.getText().toString();
-
 		NetHttpData.getHttpDao().getLogin(username, userpwd, new JsonHttpResponseHandler("utf-8") {
 
 			@Override
@@ -78,10 +86,10 @@ public class AtyLogin extends Activity implements OnClickListener {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				int status = response.optInt("status");
-				if (status == 1) {
+				if (status == 1 || status == 2) {
 					Intent i = new Intent(AtyLogin.this, MainActivity.class);
 					startActivity(i);
-					SaveUser();
+					SaveUser(username, status);
 				} else if (status == 0) {
 					Toast.makeText(AtyLogin.this, "ÕËºÅ»òÃÜÂë´íÎó,ÇëÖØÐÂµÇÂ½£¡", 1).show();
 				}
@@ -90,19 +98,18 @@ public class AtyLogin extends Activity implements OnClickListener {
 		});
 	}
 
-	public void SaveUser() {
-		SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
+	public void SaveUser(String name, int vip) {
+		SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //Êý¾Ý´æ´¢
 		Editor ed = ps.edit();
 		ed.putBoolean("isLogin", true);
-		ed.putString("username", "Àï°º");
-		ed.putString("dengji", "32");
+		ed.putString("username", name);
+		ed.putInt("vip", vip);
 		ed.commit();
 	}
 	
 	@Override
 	protected void onRestart() {
 		super.onRestart();
-		SaveUser();
 		finish();
 	}
 }

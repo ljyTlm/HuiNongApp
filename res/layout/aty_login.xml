@@ -5,8 +5,8 @@
     android:background="@drawable/loginbackground">
 
     <FrameLayout
-        android:layout_width="168dp"
-        android:layout_height="168dp"
+        android:layout_width="202dp"
+        android:layout_height="209dp"
         android:layout_gravity="center"
         android:gravity="center" >
 
