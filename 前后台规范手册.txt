@@ -6,5 +6,5 @@
 2.app主页
 	接口：getNews
 	参数：无
-	回调：list[obj:{title, name, url}]
+	回调：list[obj:{title, imgname, url}]
 	功能：获取最新咨询
