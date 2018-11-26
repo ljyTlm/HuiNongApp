@@ -24,7 +24,6 @@ public class NetHttpData {
 		client = new AsyncHttpClient();
 	}
 	
-	
 	public static NetHttpData getHttpDao(){
 		if (nethttpdao==null) {
 			nethttpdao = new NetHttpData();
@@ -32,12 +31,11 @@ public class NetHttpData {
 		return nethttpdao;
 	}
 	
-	public void getGoods(String page ,JsonHttpResponseHandler responseHandler){
-		String url = dataIp+"/HuiNongApp/Login";
-		RequestParams params = new RequestParams();
-		params.add("page", page);
-		client.post(url, params, responseHandler);	
+	public void getNews(JsonHttpResponseHandler responseHandler){
+		String url = dataIp+"/HuiNongApp/GetNews";
+		client.post(url, responseHandler);	
 	}
+	
 	public void getFenLeiGoods(String classify ,JsonHttpResponseHandler responseHandler){
 		String url = dataIp+"/LiAng/FenLeiJson";
 		RequestParams params = new RequestParams();

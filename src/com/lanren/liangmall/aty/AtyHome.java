@@ -131,7 +131,7 @@ public class AtyHome extends Activity {
 	/** 初始化最新资讯列表*/
 	public void initList() {
 		
-		NetHttpData.getHttpDao().getGoods(page+"", new JsonHttpResponseHandler("utf-8"){
+		NetHttpData.getHttpDao().getNews(new JsonHttpResponseHandler("utf-8"){
 			
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {

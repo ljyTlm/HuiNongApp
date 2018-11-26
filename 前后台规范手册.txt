@@ -1,3 +1,10 @@
 1.登录界面
+	接口：getLogin
 	参数：username userpwd
 	回调：status[0:登录失败,1:登录成功不是会员,2:登录成功是会员]
+	功能：登录
+2.app主页
+	接口：getNews
+	参数：无
+	回调：list[obj:{title, name, url}]
+	功能：获取最新咨询
