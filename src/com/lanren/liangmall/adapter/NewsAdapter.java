@@ -63,6 +63,7 @@ public class NewsAdapter extends BaseAdapter {
          * 设置控件的对应属性值 
          */
         imageView.setImageUrl(NetHttpData.dataIp+ "/HuiNong/imgs/" + news.getImgName());
+        titleTextView.setTextSize(18);
         titleTextView.setText(news.getTitle());
 
         return view;

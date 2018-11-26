@@ -148,15 +148,20 @@ public class AtyHome extends Activity {
 			
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				Log.v("TAG", "网络连接成功");
+				for (int i = 0; i < 10; i++) {
+					Log.v("TAG", "网络连接成功");
+				}
 				try {
-					JSONArray array =response.getJSONArray("result");
+					JSONArray array =response.getJSONArray("news");
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject datas = array.getJSONObject(i);
+						for (int j = 0; j < 5; j++) {
+							Log.v("注意！！", datas.toString());
+						}
 						NewsEntity news = new NewsEntity();
-						news.setTitle(datas.optString("newsTitle"));
-						news.setImgName(datas.optString("imgName"));
-						news.setNewsUrl(datas.optString("newsUrl"));
+						news.setTitle(datas.optString("title"));
+						news.setImgName(datas.optString("imgname"));
+						news.setNewsUrl(datas.optString("url"));
 						JsonList.add(news);
 					}
 					newsAdapter = new NewsAdapter(AtyHome.this, JsonList);

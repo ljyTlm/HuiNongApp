@@ -32,7 +32,7 @@ public class NetHttpData {
 	}
 	
 	public void getNews(JsonHttpResponseHandler responseHandler){
-		String url = dataIp+"/HuiNon/AtyNews";
+		String url = dataIp+"/HuiNong/AtyNews";
 		client.post(url, responseHandler);	
 	}
 	

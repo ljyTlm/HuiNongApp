@@ -86,6 +86,9 @@ public class AtyLogin extends Activity implements OnClickListener {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				int status = response.optInt("status");
+				for (int i = 0; i < 10; i++) {
+					Log.v("×¢Òâ£¡£¡", status+"");
+				}
 				if (status == 1 || status == 2) {
 					Intent i = new Intent(AtyLogin.this, MainActivity.class);
 					startActivity(i);
