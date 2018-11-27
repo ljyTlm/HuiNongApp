@@ -28,7 +28,7 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_launcher1" />
+            android:src="@drawable/ic_news" />
 
         <TextView
             android:id="@+id/news_title"
