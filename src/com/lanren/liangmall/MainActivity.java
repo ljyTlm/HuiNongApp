@@ -1,5 +1,7 @@
 package com.lanren.liangmall;
 
+import java.util.List;
+
 import com.lanren.liangmall.aty.AtyLogin;
 import com.lanren.liangmall.aty.AtySou;
 import com.lanren.liangmall.aty.AtyXiangQing;
@@ -7,6 +9,8 @@ import com.lanren.liangmall.sidemenu.ResideMenu;
 import com.lanren.liangmall.sidemenu.ResideMenuInfo;
 import com.lanren.liangmall.sidemenu.ResideMenuItem;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +23,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -87,7 +92,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		if (str) {
 			info = new ResideMenuInfo(this, R.drawable.ic_launcher1, name, dengji);
 		} else {
-			info = new ResideMenuInfo(this, R.drawable.ic_launcher, "请登录", "");
+			info = new ResideMenuInfo(this, R.drawable.ic_login, "请登录", "");
 		}
 	}
 
@@ -110,11 +115,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		resideMenu.setDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
 		// 侧栏项目名称;
-		itemHuiyuan = new ResideMenuItem(this, R.drawable.ic_launcher, "开通会员");
-		itemZhuangban = new ResideMenuItem(this, R.drawable.ic_launcher, "个性装扮");
-		itemShoucang = new ResideMenuItem(this, R.drawable.ic_launcher, "我的收藏");
-		itemXiangce = new ResideMenuItem(this, R.drawable.ic_launcher, "我的相册");
-		itemFile = new ResideMenuItem(this, R.drawable.ic_launcher, "我的文件");
+		itemHuiyuan = new ResideMenuItem(this, R.drawable.ic_vip, "会员服务");
+		itemZhuangban = new ResideMenuItem(this, R.drawable.ic_information, "我的消息");
+		itemShoucang = new ResideMenuItem(this, R.drawable.ic_money, "我的钱包");
+		itemXiangce = new ResideMenuItem(this, R.drawable.ic_bug, "我的反馈");
+		itemFile = new ResideMenuItem(this, R.drawable.ic_back, "退出程序");
 
 		resideMenu.addMenuItem(itemHuiyuan, ResideMenu.DIRECTION_LEFT);
 		resideMenu.addMenuItem(itemZhuangban, ResideMenu.DIRECTION_LEFT);
@@ -136,8 +141,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		// 搜索按钮监听事件
 		btnSou.setOnClickListener(this);
 
-		info.setOnClickListener(this);
-
+		info.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Toast.makeText(MainActivity.this, "登陆", 1).show();
+				startActivity(new Intent(MainActivity.this, AtyLogin.class));
+			}
+		});
+		
 		leftMenu.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -153,26 +166,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 	@Override
 	public void onClick(View view) {
-		try {
-			ResideMenuInfo v = (ResideMenuInfo)view;
-			Toast.makeText(MainActivity.this, "登陆", 1).show();
-			startActivity(new Intent(MainActivity.this, AtyLogin.class));
-			return;
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 		if (view.getId() == R.id.rbtn_img) {
 			startActivity(new Intent(MainActivity.this, AtySou.class));
-		} else if (view == itemHuiyuan) {
-			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
-		} else if (view == itemZhuangban) {
-			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
-		} else if (view == itemShoucang) {
-			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
-		} else if (view == itemXiangce) {
-			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
-		} else if (view == itemFile) {
-			Toast.makeText(MainActivity.this, "此服务未开放", 1).show();
+		} else if (view.equals(itemHuiyuan)) {
+			Toast.makeText(MainActivity.this, "我是会员", 1).show();
+		} else if (view.equals(itemZhuangban)) {
+			Toast.makeText(MainActivity.this, "我是装扮", 1).show();
+		} else if (view.equals(itemShoucang)) {
+			Toast.makeText(MainActivity.this, "我是收藏", 1).show();
+		} else if (view.equals(itemXiangce)) {
+			Toast.makeText(MainActivity.this, "我是相册", 1).show();
+		} else if (view.equals(itemFile)) {
+			Toast.makeText(MainActivity.this, "退出", 1).show();
+	        System.exit(0);
 		}
 	}
 
