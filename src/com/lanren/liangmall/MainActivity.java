@@ -171,11 +171,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		} else if (view.equals(itemHuiyuan)) {
 			Toast.makeText(MainActivity.this, "我是会员", 1).show();
 		} else if (view.equals(itemZhuangban)) {
-			Toast.makeText(MainActivity.this, "我是装扮", 1).show();
+			Toast.makeText(MainActivity.this, "我的消息待完善", 1).show();
 		} else if (view.equals(itemShoucang)) {
-			Toast.makeText(MainActivity.this, "我是收藏", 1).show();
+			Toast.makeText(MainActivity.this, "我的钱包待完善", 1).show();
 		} else if (view.equals(itemXiangce)) {
-			Toast.makeText(MainActivity.this, "我是相册", 1).show();
+			Toast.makeText(MainActivity.this, "我的反馈待完善", 1).show();
 		} else if (view.equals(itemFile)) {
 			Toast.makeText(MainActivity.this, "退出", 1).show();
 	        System.exit(0);
