@@ -8,3 +8,5 @@
 	参数：无
 	回调：list[obj:{title, imgname, url}]
 	功能：获取最新咨询
+3.会员服务
+	
