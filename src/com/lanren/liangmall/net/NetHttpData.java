@@ -64,4 +64,12 @@ public class NetHttpData {
 		client.post(url, params, responseHandler);
 	}
 
+	public void getVip(String codestr,JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"HuiNong/AtyGetvip";
+		RequestParams params = new RequestParams();
+		params.add("code", codestr);
+		client.post(url, params, responseHandler);
+	}
+
 }

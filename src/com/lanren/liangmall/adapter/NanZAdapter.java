@@ -42,13 +42,13 @@ public class NanZAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		NanZ n = null;
 		if (convertView==null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.aty_fenlei_itme, null);
+			convertView = LayoutInflater.from(context).inflate(R.layout.aty_getvip, null);
 		    n = new NanZ();
 		    
-		    n.img = (SmartImageView) convertView.findViewById(R.id.aty_fenlei_img_remen);
-		    n.goodsName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_name);
-		    n.dName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_dname);
-		    n.salesName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_sales);
+//		    n.img = (SmartImageView) convertView.findViewById(R.id.aty_fenlei_img_remen);
+//		    n.goodsName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_name);
+//		    n.dName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_dname);
+//		    n.salesName = (TextView) convertView.findViewById(R.id.aty_fenlei_tv_sales);
 		    convertView.setTag(n);
 		}else {
 			n = (NanZ) convertView.getTag();

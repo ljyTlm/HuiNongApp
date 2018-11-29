@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import com.lanren.liangmall.R;
 import com.lanren.liangmall.adapter.NanZAdapter;
-import com.lanren.liangmall.aty.AtyXiangQing;
+import com.lanren.liangmall.aty.AtyGetVip;
 import com.lanren.liangmall.entity.GoodsEntity;
 import com.lanren.liangmall.net.NetHttpData;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -101,7 +101,7 @@ public class AtyNvXie extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				GoodsEntity g = JsonList.get(position);
-				Intent in = new Intent(AtyNvXie.this,AtyXiangQing.class);
+				Intent in = new Intent(AtyNvXie.this,AtyGetVip.class);
 				Bundle b = new Bundle();
 				b.putString("img", g.getsDrawable());
 				b.putString("name", g.getsName());

@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.lanren.liangmall.aty.AtyLogin;
 import com.lanren.liangmall.aty.AtySou;
-import com.lanren.liangmall.aty.AtyXiangQing;
+import com.lanren.liangmall.aty.AtyVip;
+import com.lanren.liangmall.aty.AtyGetVip;
 import com.lanren.liangmall.sidemenu.ResideMenu;
 import com.lanren.liangmall.sidemenu.ResideMenuInfo;
 import com.lanren.liangmall.sidemenu.ResideMenuItem;
@@ -169,7 +170,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		if (view.getId() == R.id.rbtn_img) {
 			startActivity(new Intent(MainActivity.this, AtySou.class));
 		} else if (view.equals(itemHuiyuan)) {
-			Toast.makeText(MainActivity.this, "我是会员", 1).show();
+			SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //数据存储
+			if (ps.getBoolean("isLogin", false)) {
+				if (ps.getInt("vip", 1) == 2) {
+					startActivity(new Intent(MainActivity.this, AtyVip.class));
+				}else {
+					startActivity(new Intent(MainActivity.this, AtyGetVip.class));
+				}
+			}else {
+				startActivity(new Intent(MainActivity.this, AtyGetVip.class));
+				Toast.makeText(MainActivity.this, "请您先登录！", 1).show();
+			}
 		} else if (view.equals(itemZhuangban)) {
 			Toast.makeText(MainActivity.this, "我的消息待完善", 1).show();
 		} else if (view.equals(itemShoucang)) {
@@ -208,7 +219,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 				// 判断两次点击的时间间隔（默认设置为2秒）
 				if ((System.currentTimeMillis() - mExitTime) > 2000) {
 					Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-
 					mExitTime = System.currentTimeMillis();
 				} else {
 					finish();
