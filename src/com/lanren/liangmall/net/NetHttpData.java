@@ -13,7 +13,7 @@ import com.loopj.android.http.ResponseHandlerInterface;
 
 public class NetHttpData {
 	
-	public static String dataIp="http://192.168.200.137:8080";
+	public static String dataIp="http://192.168.200.138:8080";
 	//public static String dataIp="http://192.168.1.107:8080";
 	//public static String dataIp="http://192.168.1.104:8080";
 	
@@ -64,11 +64,12 @@ public class NetHttpData {
 		client.post(url, params, responseHandler);
 	}
 
-	public void getVip(String codestr,JsonHttpResponseHandler responseHandler) {
+	public void getVip(String username, String codestr,JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
-		String url = dataIp+"HuiNong/AtyGetVip";
+		String url = dataIp+"/HuiNong/AtyGetVip";
 		RequestParams params = new RequestParams();
 		params.add("code", codestr);
+		params.add("username", username);
 		client.post(url, params, responseHandler);
 	}
 

@@ -93,6 +93,7 @@ public class AtyLogin extends Activity implements OnClickListener {
 					Intent i = new Intent(AtyLogin.this, MainActivity.class);
 					startActivity(i);
 					SaveUser(username, status);
+					Toast.makeText(AtyLogin.this, "¹§Ï²ÄúµÇÂ¼³É¹¦£¡", 1).show();
 				} else if (status == 0) {
 					Toast.makeText(AtyLogin.this, "ÕËºÅ»òÃÜÂë´íÎó,ÇëÖØĞÂµÇÂ½£¡", 1).show();
 				}

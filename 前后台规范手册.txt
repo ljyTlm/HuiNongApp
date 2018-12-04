@@ -14,7 +14,7 @@
 	安卓端接口：getNews
 	web端接口：AtyGetvip
 	接口：getVip
-	参数：兑换码 code
+	参数：兑换码 code 用户id username
 	回调：success[0:兑换码有误, 1:会员兑换成功]
 	功能：开通会员服务
 	

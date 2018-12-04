@@ -48,8 +48,10 @@ public class AtyGetVip extends FragmentActivity implements OnClickListener{
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
+		SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //数据存储
 		String codestr = code.getText().toString();
-		NetHttpData.getHttpDao().getVip(codestr, new JsonHttpResponseHandler("utf-8") {
+		String username = ps.getString("username", "");
+		NetHttpData.getHttpDao().getVip(username, codestr, new JsonHttpResponseHandler("utf-8") {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
@@ -62,8 +64,11 @@ public class AtyGetVip extends FragmentActivity implements OnClickListener{
 				int status = response.optInt("success");
 				if (status == 1) {
 					Toast.makeText(AtyGetVip.this, "恭喜您兑换成功！请重新登录", 2).show();
-					Intent i = new Intent(AtyGetVip.this, AtyLogin.class);
-					startActivity(i);
+					SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //数据存储
+					Editor ed = ps.edit();
+					ed.putInt("vip", 2);
+					ed.commit();
+					AtyGetVip.this.finish();
 				} else {
 					Toast.makeText(AtyGetVip.this, "兑换码有误！请您重新填写", 1).show();
 					code.setText("");
