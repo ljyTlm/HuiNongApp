@@ -17,4 +17,10 @@
 	参数：兑换码 code 用户id username
 	回调：success[0:兑换码有误, 1:会员兑换成功]
 	功能：开通会员服务
+4.积分兑换
+	安卓端接口：getVipScore
+	web端接口：AtyVipScore
+	参数：username
+	回调：score
+	功能：获取该用户有多少积分
 	

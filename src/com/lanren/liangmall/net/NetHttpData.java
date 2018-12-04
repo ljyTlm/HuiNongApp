@@ -73,4 +73,12 @@ public class NetHttpData {
 		client.post(url, params, responseHandler);
 	}
 
+	public void getVipScore(String username,JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"/HuiNong/AtyVipScore";
+		RequestParams params = new RequestParams();
+		params.add("username", username);
+		client.post(url, params, responseHandler);
+	}
+
 }

@@ -189,7 +189,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			Toast.makeText(MainActivity.this, "我的反馈待完善", 1).show();
 		} else if (view.equals(itemFile)) {
 			Toast.makeText(MainActivity.this, "退出", 1).show();
-	        System.exit(0);
+	        //System.exit(0);
 		}
 	}
 
