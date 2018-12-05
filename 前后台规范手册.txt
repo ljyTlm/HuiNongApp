@@ -24,3 +24,14 @@
 	回调：score
 	功能：获取该用户有多少积分
 	
+	安卓端接口：getVipGifts
+	web端接口：AtyGetGifts
+	参数：无
+	回调：gifts[1:[name,score],2:[name,score],3:[name,score]]
+	功能：获取积分兑换的礼物
+	
+	安卓端接口：getGiftByScore
+	web端接口：AtyGetGiftByScore
+	参数：id username
+	回调：status:[0, 1, 2]
+	功能：会员兑换礼品

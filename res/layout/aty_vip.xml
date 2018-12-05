@@ -61,9 +61,11 @@
                         android:id="@+id/txt_gift1"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:gravity="center" 
+        				android:layout_gravity="center"
                         android:text="暂无商品"
                         android:textColor="@color/green"
-                        android:textSize="20sp" />
+                        android:textSize="7sp" />
 
                     <Button
                         android:id="@+id/get_gift1"
@@ -95,9 +97,11 @@
                         android:id="@+id/txt_gift2"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:gravity="center" 
+        				android:layout_gravity="center"
                         android:text="暂无商品"
                         android:textColor="@color/green"
-                        android:textSize="20sp" />
+                        android:textSize="7sp" />
 
                     <Button
                         android:id="@+id/get_gift2"
@@ -129,9 +133,11 @@
                         android:id="@+id/txt_gift3"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:gravity="center" 
+        				android:layout_gravity="center"
                         android:text="暂无商品"
                         android:textColor="@color/green"
-                        android:textSize="20sp" />
+                        android:textSize="7sp" />
 
                     <Button
                         android:id="@+id/get_gift3"
