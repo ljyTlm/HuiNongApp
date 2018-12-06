@@ -12,7 +12,6 @@ import com.lanren.liangmall.R;
 import com.lanren.liangmall.adapter.NewsAdapter;
 import com.lanren.liangmall.adapter.RenMenGoodsAdapter;
 import com.lanren.liangmall.adapter.ViewPagerAdapter;
-import com.lanren.liangmall.aty.fenlei.AtyNvKu;
 import com.lanren.liangmall.entity.GoodsEntity;
 import com.lanren.liangmall.entity.NewsEntity;
 import com.lanren.liangmall.entity.ViewPagerEntity;

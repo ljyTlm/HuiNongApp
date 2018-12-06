@@ -38,12 +38,8 @@
         <activity android:name="com.lanren.liangmall.aty.AtyGetVip"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyWebView"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyMoney"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanKu"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanXie"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanZhuang"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNvKu"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNvXie"></activity>
-        <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNvZhuang"></activity>
+        <activity android:name="com.lanren.liangmall.aty.AtyFeedBack"></activity>
+        <activity android:name="com.lanren.liangmall.aty.AtyInformation"></activity>
     </application>
 
 </manifest>

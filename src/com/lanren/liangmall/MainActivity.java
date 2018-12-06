@@ -2,6 +2,8 @@ package com.lanren.liangmall;
 
 import java.util.List;
 
+import com.lanren.liangmall.aty.AtyFeedBack;
+import com.lanren.liangmall.aty.AtyInformation;
 import com.lanren.liangmall.aty.AtyLogin;
 import com.lanren.liangmall.aty.AtyMoney;
 import com.lanren.liangmall.aty.AtySou;
@@ -16,6 +18,7 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -170,28 +173,38 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 	public void onClick(View view) {
 		if (view.getId() == R.id.rbtn_img) {
 			startActivity(new Intent(MainActivity.this, AtySou.class));
-		} else if (view.equals(itemHuiyuan)) {
-			SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //数据存储
-			if (ps.getBoolean("isLogin", false)) {
-				if (ps.getInt("vip", 1) == 2) {
-					startActivity(new Intent(MainActivity.this, AtyVip.class));
-				}else {
-					startActivity(new Intent(MainActivity.this, AtyGetVip.class));
-				}
+			return;
+		}
+		SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE); //数据存储
+		if (view.equals(itemFile)) {
+			Editor ed = ps.edit();
+			ed.putBoolean("isLogin", false);
+			ed.putString("username", "");
+			ed.putInt("vip", 0);
+			ed.commit();
+			Toast.makeText(MainActivity.this, "退出", 1).show();
+	        System.exit(0);
+	        return;
+		}
+		if (!ps.getBoolean("isLogin", false)) {
+			Toast.makeText(MainActivity.this, "请您先登录！", 1).show();
+			//return;
+		}
+		if (view.equals(itemHuiyuan)) {
+			if (ps.getInt("vip", 1) == 2) {
+				startActivity(new Intent(MainActivity.this, AtyVip.class));
 			}else {
 				startActivity(new Intent(MainActivity.this, AtyGetVip.class));
-				Toast.makeText(MainActivity.this, "请您先登录！", 1).show();
 			}
 		} else if (view.equals(itemZhuangban)) {
+			startActivity(new Intent(MainActivity.this, AtyInformation.class));
 			Toast.makeText(MainActivity.this, "我的消息待完善", 1).show();
 		} else if (view.equals(itemShoucang)) {
 			startActivity(new Intent(MainActivity.this, AtyMoney.class));
 			Toast.makeText(MainActivity.this, "我的钱包待完善", 1).show();
 		} else if (view.equals(itemXiangce)) {
+			startActivity(new Intent(MainActivity.this, AtyFeedBack.class));
 			Toast.makeText(MainActivity.this, "我的反馈待完善", 1).show();
-		} else if (view.equals(itemFile)) {
-			Toast.makeText(MainActivity.this, "退出", 1).show();
-	        //System.exit(0);
 		}
 	}
 

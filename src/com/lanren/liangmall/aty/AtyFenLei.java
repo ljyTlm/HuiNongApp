@@ -5,14 +5,9 @@ import java.util.List;
 
 import com.lanren.liangmall.R;
 import com.lanren.liangmall.adapter.FenLeiAdapter;
-import com.lanren.liangmall.aty.fenlei.AtyNanKu;
-import com.lanren.liangmall.aty.fenlei.AtyNanXie;
-import com.lanren.liangmall.aty.fenlei.AtyNanZhuang;
-import com.lanren.liangmall.aty.fenlei.AtyNvKu;
-import com.lanren.liangmall.aty.fenlei.AtyNvXie;
-import com.lanren.liangmall.aty.fenlei.AtyNvZhuang;
 import com.lanren.liangmall.entity.FenLeiEntity;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,7 +37,7 @@ public class AtyFenLei extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fenlei_itme);
 		String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","在线农业专家咨询","前端最新农业技术"};
-
+		final String [] url = {};
 		int[] images = new int[] { R.drawable.hangqing, R.drawable.jiaoyi, 
 				R.drawable.zixun,R.drawable.jishu};
 		//将数据放到集合中去
@@ -63,43 +58,9 @@ public class AtyFenLei extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Log.v("TAG", "itme位置："+position);
-				if (position==0) {
-					Intent i = new Intent(AtyFenLei.this,AtyNanZhuang.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}else if (position==1) {
-					Intent i = new Intent(AtyFenLei.this,AtyNvZhuang.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}else if (position==2) {
-					Intent i = new Intent(AtyFenLei.this,AtyNanKu.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}else if (position==3) {
-					Intent i = new Intent(AtyFenLei.this,AtyNvKu.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}else if (position==4) {
-					Intent i = new Intent(AtyFenLei.this,AtyNanXie.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}else if (position==5) {
-					Intent i = new Intent(AtyFenLei.this,AtyNvXie.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt("lei", position+1);
-					i.putExtras(bundle);
-					startActivity(i);
-				}
+				Intent intent = new Intent(AtyFenLei.this, AtyWebView.class);
+				intent.putExtra("url", url[position]);
+				startActivity(intent);
 			}
 		});
 	}
