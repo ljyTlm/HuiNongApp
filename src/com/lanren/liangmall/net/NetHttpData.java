@@ -14,7 +14,8 @@ import com.loopj.android.http.ResponseHandlerInterface;
 
 public class NetHttpData {
 	
-	public static String dataIp="http://192.168.43.176:8080";
+	//public static String dataIp="http://192.168.43.176:8080";
+	public static String dataIp="http://192.168.200.138:8080";
 	//public static String dataIp="http://192.168.1.107:8080";
 	//public static String dataIp="http://192.168.1.104:8080";
 	
@@ -94,6 +95,16 @@ public class NetHttpData {
 		RequestParams params = new RequestParams();
 		params.add("username", username);
 		params.add("id", id+"");
+		client.post(url, params, responseHandler);
+	}
+
+	public void postFeedBack(String username, String text, String title, JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"/HuiNong/AtyFeedBack";
+		RequestParams params = new RequestParams();
+		params.add("username", username);
+		params.add("text", text);
+		params.add("title", title);
 		client.post(url, params, responseHandler);
 	}
 

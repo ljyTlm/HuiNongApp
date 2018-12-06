@@ -35,3 +35,8 @@
 	参数：id username
 	回调：status:[0, 1, 2]
 	功能：会员兑换礼品
+5.用户反馈
+	安卓端接口：postFeedBack
+	web端接口：AtyFeedBack
+	参数：username text title
+	功能：提交用户的反馈信息

@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/loginbackground">
     
+	<TextView
+        android:layout_width="170dp"
+        android:layout_height="130dp" 
+        android:background="@drawable/ic_feedback"/>
+	
+    <FrameLayout
+        android:layout_width="202dp"
+        android:layout_height="229dp"
+        android:layout_gravity="center"
+        android:gravity="center" >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="感谢您的反馈 如果采纳 会有rmb奖励哦~~~"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            
+			<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+			
+			<EditText
+                android:id="@+id/t_feedback1"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:text="标题"
+                android:textSize="15dp"
+                android:textColor="@color/gray"
+                android:inputType="text" />
+			<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+			
+            <EditText
+                android:id="@+id/t_feedback2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+            
+            <Button
+	           	android:id="@+id/b_feedback"
+	           	android:gravity="center"
+	           	android:layout_gravity="center"
+	           	android:layout_width="match_parent"
+	           	android:layout_height="30dp"
+	           	android:background="@color/black"
+	           	android:text="提   交"
+	           	android:textColor="@color/white"
+	           	android:textSize="15dp" />
+			
+        </LinearLayout>
+		
+    </FrameLayout>
+
+</FrameLayout>
