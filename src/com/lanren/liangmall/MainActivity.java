@@ -3,6 +3,7 @@ package com.lanren.liangmall;
 import java.util.List;
 
 import com.lanren.liangmall.aty.AtyLogin;
+import com.lanren.liangmall.aty.AtyMoney;
 import com.lanren.liangmall.aty.AtySou;
 import com.lanren.liangmall.aty.AtyVip;
 import com.lanren.liangmall.aty.AtyGetVip;
@@ -184,6 +185,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		} else if (view.equals(itemZhuangban)) {
 			Toast.makeText(MainActivity.this, "我的消息待完善", 1).show();
 		} else if (view.equals(itemShoucang)) {
+			startActivity(new Intent(MainActivity.this, AtyMoney.class));
 			Toast.makeText(MainActivity.this, "我的钱包待完善", 1).show();
 		} else if (view.equals(itemXiangce)) {
 			Toast.makeText(MainActivity.this, "我的反馈待完善", 1).show();

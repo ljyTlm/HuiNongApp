@@ -37,6 +37,7 @@
         <activity android:name="com.lanren.liangmall.aty.AtyVip"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyGetVip"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyWebView"></activity>
+        <activity android:name="com.lanren.liangmall.aty.AtyMoney"></activity>
         <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanKu"></activity>
         <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanXie"></activity>
         <activity android:name="com.lanren.liangmall.aty.fenlei.AtyNanZhuang"></activity>
