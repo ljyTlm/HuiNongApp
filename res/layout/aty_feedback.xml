@@ -48,10 +48,12 @@
 			
             <EditText
                 android:id="@+id/t_feedback2"
+                android:gravity="top"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/white"
-                android:inputType="text" />
+                android:textSize="12sp"
+                android:inputType="textMultiLine" />
 
             <TextView
                 android:layout_width="wrap_content"
