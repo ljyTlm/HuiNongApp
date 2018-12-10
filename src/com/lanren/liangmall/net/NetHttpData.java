@@ -32,32 +32,19 @@ public class NetHttpData {
 		}
 		return nethttpdao;
 	}
-	
+	/**
+	 * 获取咨询列表数据
+	 * */
 	public void getNews(JsonHttpResponseHandler responseHandler){
 		String url = dataIp+"/HuiNong/AtyNews";
 		client.post(url, responseHandler);	
 	}
-	
-	public void getFenLeiGoods(String classify ,JsonHttpResponseHandler responseHandler){
-		String url = dataIp+"/LiAng/FenLeiJson";
-		RequestParams params = new RequestParams();
-		params.add("classify", classify);
-		client.post(url, params, responseHandler);	
-	}
-	
-	public void getColor(){
-		
-	}
-	
-	public void isAddData(){
-		
-	}
-	
-	public void isDeleteData(){
-		
-	}
-	
-	
+	/**
+	 * 登录
+	 * @param username
+	 * @param userpwd
+	 * @param responseHandler
+	 */
 	public void getLogin(String username,String userpwd,JsonHttpResponseHandler responseHandler){
 		String url = dataIp+"/HuiNong/AtyLogin";
 		RequestParams params = new RequestParams();
@@ -65,7 +52,12 @@ public class NetHttpData {
 		params.add("userpwd", userpwd);
 		client.post(url, params, responseHandler);
 	}
-
+	/**
+	 * 兑换vip
+	 * @param username
+	 * @param codestr
+	 * @param responseHandler
+	 */
 	public void getVip(String username, String codestr,JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
 		String url = dataIp+"/HuiNong/AtyGetVip";
@@ -74,7 +66,11 @@ public class NetHttpData {
 		params.add("username", username);
 		client.post(url, params, responseHandler);
 	}
-
+	/**
+	 * 获取会员积分
+	 * @param username
+	 * @param responseHandler
+	 */
 	public void getVipScore(String username,JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
 		String url = dataIp+"/HuiNong/AtyVipScore";
@@ -82,13 +78,21 @@ public class NetHttpData {
 		params.add("username", username);
 		client.post(url, params, responseHandler);
 	}
-
+	/**
+	 * 获取积分可兑换的商品
+	 * @param responseHandler
+	 */
 	public void getVipGifts(JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
 		String url = dataIp+"/HuiNong/AtyGetGifts";
 		client.post(url, responseHandler);
 	}
-
+	/**
+	 * 积分兑换礼物
+	 * @param id
+	 * @param username
+	 * @param responseHandler
+	 */
 	public void getGiftByScore(int id, String username, JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
 		String url = dataIp+"/HuiNong/AtyGetGiftByScore";
@@ -97,7 +101,13 @@ public class NetHttpData {
 		params.add("id", id+"");
 		client.post(url, params, responseHandler);
 	}
-
+	/**
+	 * 提交反馈信息
+	 * @param username
+	 * @param text
+	 * @param title
+	 * @param responseHandler
+	 */
 	public void postFeedBack(String username, String text, String title, JsonHttpResponseHandler responseHandler) {
 		// TODO Auto-generated method stub
 		String url = dataIp+"/HuiNong/AtyFeedBack";
@@ -105,6 +115,20 @@ public class NetHttpData {
 		params.add("username", username);
 		params.add("text", text);
 		params.add("title", title);
+		client.post(url, params, responseHandler);
+	}
+	/**
+	 * 获取购物车列表
+	 * @param username
+	 * @param responseHandler
+	 */
+	public void getDataCar(String username, Integer operation, String id, JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"/HuiNong/AtyGetDataCar";
+		RequestParams params = new RequestParams();
+		params.add("id", id);
+		params.add("username", username.toString());
+		params.add("operation", operation.toString());
 		client.post(url, params, responseHandler);
 	}
 

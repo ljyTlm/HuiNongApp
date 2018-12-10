@@ -13,20 +13,11 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="3dp" >
 
-        <com.loopj.android.image.SmartImageView
-            android:id="@+id/aty_gouwu_img"
-            android:layout_width="60dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_launcher1" />
-
         <TextView
             android:id="@+id/aty_gouwu_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/aty_gouwu_img"
             android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/aty_gouwu_img"
             android:maxEms="100"
             android:maxLines="2"
             android:text="商品名称" />

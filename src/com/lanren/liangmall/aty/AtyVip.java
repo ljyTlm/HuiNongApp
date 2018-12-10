@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 import com.lanren.liangmall.MainActivity;
 import com.lanren.liangmall.R;
-import com.lanren.liangmall.dao.DataCar;
 import com.lanren.liangmall.net.NetHttpData;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.image.SmartImageView;

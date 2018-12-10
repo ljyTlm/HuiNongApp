@@ -20,17 +20,12 @@
             android:text="我的购物车"
             android:textColor="@color/black"
             android:textSize="20sp" />
-
-<!--         <TextView -->
-<!--             android:id="@+id/tv_top_edit" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="match_parent" -->
-<!--             android:gravity="center_vertical" -->
-<!--             android:paddingLeft="10dp" -->
-<!--             android:paddingRight="10dp" -->
-<!--             android:text="编辑" -->
-<!--             android:textColor="@color/red" -->
-<!--             android:textSize="20sp" /> -->
+		<Button 
+		    android:id="@+id/but_clean"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="结 算 全 部"/>
     </LinearLayout>
 
     <View
@@ -43,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@color/transparent"
-        android:footerDividersEnabled="false"/>
+        android:footerDividersEnabled="false" >
+    </ListView>
 
 </LinearLayout>
