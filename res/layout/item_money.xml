@@ -7,28 +7,46 @@
     >
 
     <TextView
-        android:id="@+id/zd_name"
+        android:id="@+id/txt_ctnname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/zd_price"
         android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/txt_price"
         android:layout_margin="10dp"
-        android:layout_marginLeft="21dp"
         android:text="商品名称"
         android:textColor="#000"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/zd_price"
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_price"
+        android:layout_alignBottom="@+id/txt_price"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/txt_ctnname"
+        android:text="交易日期" />
+
+    <TextView
+        android:id="@+id/txt_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_margin="10dp"
-        android:layout_marginRight="76dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginTop="18dp"
         android:text="0"
         android:textColor="#000"
         android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txt_price"
+        android:background="@color/green" />
 
 </RelativeLayout>

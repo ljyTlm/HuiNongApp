@@ -4,43 +4,63 @@
 	参数：username userpwd
 	回调：status[0:登录失败,1:登录成功不是会员,2:登录成功是会员]
 	功能：登录
-2.app主页
-	安卓端接口：getNews
-	web端接口：AtyNews
-	参数：无
-	回调：list[obj:{title, imgname, url}]
-	功能：获取最新咨询
-3.会员服务
-	安卓端接口：getNews
-	web端接口：AtyGetvip
-	接口：getVip
-	参数：兑换码 code 用户id username
-	回调：success[0:兑换码有误, 1:会员兑换成功]
-	功能：开通会员服务
-4.积分兑换
-	安卓端接口：getVipScore
-	web端接口：AtyVipScore
-	参数：username
-	回调：score
-	功能：获取该用户有多少积分
 	
-	安卓端接口：getVipGifts
-	web端接口：AtyGetGifts
-	参数：无
-	回调：gifts[1:[name,score],2:[name,score],3:[name,score]]
-	功能：获取积分兑换的礼物
-	
-	安卓端接口：getGiftByScore
-	web端接口：AtyGetGiftByScore
-	参数：id username
-	回调：status:[0, 1, 2]
-	功能：会员兑换礼品
+2.会员服务
+	(1)开通会员
+		安卓端接口：getNews
+		web端接口：AtyGetvip
+		接口：getVip
+		参数：兑换码 code 用户id username
+		回调：success[0:兑换码有误, 1:会员兑换成功]
+		功能：开通会员服务
+	(2)积分兑换
+		安卓端接口：getVipScore
+		web端接口：AtyVipScore
+		参数：username
+		回调：score
+		功能：获取该用户有多少积分
+		
+		安卓端接口：getVipGifts
+		web端接口：AtyGetGifts
+		参数：无
+		回调：gifts[1:[name,score],2:[name,score],3:[name,score]]
+		功能：获取积分兑换的礼物
+		
+		安卓端接口：getGiftByScore
+		web端接口：AtyGetGiftByScore
+		参数：id username
+		回调：status:[0, 1, 2]
+		功能：会员兑换礼品
+		
+3.我的消息
+
+
+
+
+4.我的钱包
+	安卓端接口：getMoney
+	web端接口：AtyGetMoney
+	参数：username operation[0:获取余额,1:获取消费记录]
+	回调：money 、[{id, ctnid, ctnname, money, date, status, username},{},{}]
+	功能：获取余额 获取消费记录
+
 5.用户反馈
 	安卓端接口：postFeedBack
 	web端接口：AtyFeedBack
 	参数：username text title
 	功能：提交用户的反馈信息
-6.购物车
+	
+6.app主页
+	安卓端接口：getNews
+	web端接口：AtyNews
+	参数：无
+	回调：list[obj:{title, imgname, url}]
+	功能：获取最新咨询
+	
+8.
+
+	
+9.购物车
 	安卓端接口：getDataCar
 	web端接口：AtyGetDataCar
 	参数：username operation[0:获取数据,1:结算商品2:从购物车中移除此商品] id(商品id) 

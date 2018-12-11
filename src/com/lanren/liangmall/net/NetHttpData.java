@@ -131,5 +131,20 @@ public class NetHttpData {
 		params.add("operation", operation.toString());
 		client.post(url, params, responseHandler);
 	}
+	/**
+	 * 获取钱余额和消费记录
+	 * @param username
+	 * @param operation
+	 * @param responseHandler
+	 */
+	public void getMoney(String username, Integer operation, JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"/HuiNong/AtyGetMoney";
+		RequestParams params = new RequestParams();
+		params.add("username", username.toString());
+		params.add("operation", operation.toString());
+		client.post(url, params, responseHandler);
+		
+	}
 
 }

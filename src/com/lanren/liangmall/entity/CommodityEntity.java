@@ -6,8 +6,8 @@ public class CommodityEntity {
 	Integer id;
 	String name;
 	Integer price;
-	String seller;
-	String buyer;
+	String sellername;
+	Integer status;
 	public Integer getId() {
 		return id;
 	}
@@ -26,16 +26,17 @@ public class CommodityEntity {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	public String getSeller() {
-		return seller;
+	public String getSellername() {
+		return sellername;
 	}
-	public void setSeller(String seller) {
-		this.seller = seller;
+	public void setSellername(String sellername) {
+		this.sellername = sellername;
 	}
-	public String getBuyer() {
-		return buyer;
+	public Integer getStatus() {
+		return status;
 	}
-	public void setBuyer(String buyer) {
-		this.buyer = buyer;
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
+	
 }
