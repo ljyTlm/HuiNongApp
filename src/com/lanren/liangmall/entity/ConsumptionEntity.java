@@ -7,6 +7,7 @@ public class ConsumptionEntity {
 	String date;
 	Integer commodityId;
 	Integer status;
+	Double money;
 	public int getId() {
 		return id;
 	}
@@ -42,6 +43,12 @@ public class ConsumptionEntity {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public Double getMoney() {
+		return money;
+	}
+	public void setMoney(Double money) {
+		this.money = money;
 	}
 	
 	

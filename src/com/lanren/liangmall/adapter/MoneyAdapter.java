@@ -3,6 +3,7 @@ package com.lanren.liangmall.adapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.w3c.dom.ls.LSInput;
 
 import com.lanren.liangmall.entity.ConsumptionEntity;
 import com.lanren.liangmall.R;
@@ -51,7 +52,11 @@ public class MoneyAdapter extends BaseAdapter{
 		TextView prict = (TextView)view.findViewById(R.id.txt_price);
 		TextView date = (TextView)view.findViewById(R.id.txt_date);
 		name.setText(list.get(arg0).getCtnname().toString());
-		prict.setText(list.get(arg0).getCtnname().toString());
+		if ("≥‰÷µ".equals(list.get(arg0).getCtnname())) {
+			prict.setText("+"+list.get(arg0).getMoney().toString());
+		}else {
+			prict.setText("-"+list.get(arg0).getMoney().toString());
+		}
 		date.setText(list.get(arg0).getDate().toString());
 		return view;
 	}

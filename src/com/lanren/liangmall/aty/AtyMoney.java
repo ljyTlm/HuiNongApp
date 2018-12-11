@@ -50,16 +50,16 @@ public class AtyMoney extends FragmentActivity implements OnClickListener{
 		init();
 		setOnClick();
 		
-		ConsumptionEntity ctn = new ConsumptionEntity();
-		ctn.setCommodityId(2);
-		ctn.setCtnname("ceshi");
-		ctn.setDate("2018");
-		ctn.setId(3);
-		ctn.setStatus(0);
-		ctn.setUsername("lijinyu");
-		list.add(ctn);
-		adapter = new MoneyAdapter(AtyMoney.this, list);
-		listView.setAdapter(adapter);
+//		ConsumptionEntity ctn = new ConsumptionEntity();
+//		ctn.setCommodityId(2);
+//		ctn.setCtnname("ceshi");
+//		ctn.setDate("2018");
+//		ctn.setId(3);
+//		ctn.setStatus(0);
+//		ctn.setUsername("lijinyu");
+//		list.add(ctn);
+//		adapter = new MoneyAdapter(AtyMoney.this, list);
+//		listView.setAdapter(adapter);
 		
 	}
 	
@@ -111,6 +111,7 @@ public class AtyMoney extends FragmentActivity implements OnClickListener{
 					ctn.setId(response.optJSONObject(i).optInt("id"));
 					ctn.setStatus(response.optJSONObject(i).optInt("status"));
 					ctn.setUsername(response.optJSONObject(i).optString("username"));
+					ctn.setMoney(response.optJSONObject(i).optDouble("money"));
 					list.add(ctn);
 				}
 				adapter = new MoneyAdapter(AtyMoney.this, list);
