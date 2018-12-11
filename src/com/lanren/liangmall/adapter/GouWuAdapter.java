@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.lanren.liangmall.R;
 import com.lanren.liangmall.entity.CommodityEntity;
+import com.lanren.liangmall.entity.ConsumptionEntity;
 import com.lanren.liangmall.net.NetHttpData;
 import com.loopj.android.image.SmartImageView;
 
@@ -24,7 +25,7 @@ public class GouWuAdapter extends BaseAdapter {
 	
 	private Context context;
 	private LayoutInflater mInflater;//布局装载器对象
-	private List<CommodityEntity> list;
+	private List<ConsumptionEntity> list;
 	/**
 	 * Adapter构造方法
 	 * 
@@ -41,7 +42,7 @@ public class GouWuAdapter extends BaseAdapter {
 		
 	}
 
-	public GouWuAdapter (Context context, List<CommodityEntity> list) {
+	public GouWuAdapter (Context context, List<ConsumptionEntity> list) {
 		mInflater = LayoutInflater.from(context);
 		this.list = list;
 	}
@@ -75,8 +76,8 @@ public class GouWuAdapter extends BaseAdapter {
 		TextView name = (TextView) view.findViewById(R.id.aty_gouwu_tv_name);
 		TextView price = (TextView) view.findViewById(R.id.aty_gouwu_tv_price);
 		view.setTag(position);
-	    name.setText(list.get(position).getName().toString());
-	    price.setText(list.get(position).getPrice().toString());
+	    name.setText(list.get(position).getCtnname().toString());
+	    price.setText(list.get(position).getMoney().toString());
 		return view;
 	}
 }

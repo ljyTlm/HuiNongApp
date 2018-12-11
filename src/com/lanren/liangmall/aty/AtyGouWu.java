@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import com.lanren.liangmall.R;
 import com.lanren.liangmall.adapter.GouWuAdapter;
 import com.lanren.liangmall.entity.CommodityEntity;
+import com.lanren.liangmall.entity.ConsumptionEntity;
 import com.lanren.liangmall.net.NetHttpData;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -38,7 +39,7 @@ public class AtyGouWu extends Activity {
 	private String username;
 	private ListView listView;
 	private GouWuAdapter adapter;
-	private List<CommodityEntity> list;
+	private List<ConsumptionEntity> list;
 	private AlertDialog.Builder builder;
 	private String itemId;
 	
@@ -46,7 +47,7 @@ public class AtyGouWu extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aty_car);
-		list = new ArrayList<CommodityEntity>();
+		list = new ArrayList<ConsumptionEntity>();
 		listView = (ListView) findViewById(R.id.gouwu_listview);
 		username = getUsername();
 		if ("".equals(username)) {
@@ -113,7 +114,7 @@ public class AtyGouWu extends Activity {
 				}else {
 					operation = deletedata;
 				}
-                NetHttpData.getHttpDao().getDataCar(username, operation, itemId, new JsonHttpResponseHandler(){
+                NetHttpData.getHttpDao().getDataCar(username, operation, list.get(Integer.valueOf(itemId)).getId()+"", new JsonHttpResponseHandler(){
                 	@Override
                 	public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 		// TODO Auto-generated method stub
@@ -129,7 +130,7 @@ public class AtyGouWu extends Activity {
 							adapter.notifyDataSetChanged();
 							Toast.makeText(AtyGouWu.this, "操作成功！", Toast.LENGTH_SHORT).show();
 						}else {
-							Toast.makeText(AtyGouWu.this, "操作失败请刷新后重试！", Toast.LENGTH_LONG).show();
+							Toast.makeText(AtyGouWu.this, response.optInt("status"), Toast.LENGTH_LONG).show();
 						}
                 	}
                 });
@@ -148,16 +149,18 @@ public class AtyGouWu extends Activity {
 			}
 
 			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+			public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 				try {
-					JSONArray jsonArray = response.getJSONArray("dataCar");
-					for (int i = 0; i < jsonArray.length(); i++) {
-						JSONObject json = jsonArray.getJSONObject(i);
-						CommodityEntity commodityEntity = new CommodityEntity();
-						commodityEntity.setId(json.optInt("id"));
-						commodityEntity.setName(json.optString("name"));
-						commodityEntity.setPrice(json.optInt("price"));
-						list.add(commodityEntity);
+					for (int i = 0; i < response.length(); i++) {
+						ConsumptionEntity ctn = new ConsumptionEntity();
+						ctn.setCommodityId(response.optJSONObject(i).optInt("commodityId"));
+						ctn.setCtnname(response.optJSONObject(i).optString("ctnname"));
+						ctn.setDate(response.optJSONObject(i).optString("date"));
+						ctn.setId(response.optJSONObject(i).optInt("id"));
+						ctn.setStatus(response.optJSONObject(i).optInt("status"));
+						ctn.setUsername(response.optJSONObject(i).optString("username"));
+						ctn.setMoney(response.optJSONObject(i).optDouble("money"));
+						list.add(ctn);
 					}
 				} catch (Exception e) {
 					// TODO: handle exception
