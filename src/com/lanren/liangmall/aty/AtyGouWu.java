@@ -45,7 +45,7 @@ public class AtyGouWu extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gouwuche_itme);
+		setContentView(R.layout.aty_car);
 		list = new ArrayList<CommodityEntity>();
 		listView = (ListView) findViewById(R.id.gouwu_listview);
 		username = getUsername();

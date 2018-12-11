@@ -48,7 +48,7 @@ public class NewsAdapter extends BaseAdapter {
 	public View getView(int position, View arg1, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		//将布局文件转化为View对象
-        View view = mInflater.inflate(R.layout.news_home_itme,null);
+        View view = mInflater.inflate(R.layout.itme_home_news,null);
 
         /**
          * 找到item布局文件中对应的控件 

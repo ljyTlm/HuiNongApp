@@ -71,7 +71,7 @@ public class GouWuAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View view = mInflater.inflate(R.layout.aty_gouwu_itme,null);
+		View view = mInflater.inflate(R.layout.itme_car,null);
 		TextView name = (TextView) view.findViewById(R.id.aty_gouwu_tv_name);
 		TextView price = (TextView) view.findViewById(R.id.aty_gouwu_tv_price);
 		view.setTag(position);

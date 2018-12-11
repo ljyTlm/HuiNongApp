@@ -12,7 +12,7 @@ public class AtyInformation extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.aty_information);
+		setContentView(R.layout.aty_info);
 		
 	}
 	
