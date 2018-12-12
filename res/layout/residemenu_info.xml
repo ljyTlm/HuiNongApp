@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/image_icon"
-        android:layout_width="40dp"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher" />
 
     <LinearLayout
@@ -19,18 +19,17 @@
 
         <TextView
             android:id="@+id/tv_username"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/gainsboro"
-            android:text="QQ昵称" />
-
-        <TextView
-            android:id="@+id/tv_dengji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-             android:textColor="@color/red"
-            android:text="QQ等级" />
+            android:text="昵称"
+            android:textColor="@color/gainsboro" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_dengji"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="vip" />
 
 </LinearLayout>

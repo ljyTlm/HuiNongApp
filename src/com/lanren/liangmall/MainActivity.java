@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 	private RadioButton btnSou;
 
 	// »ñÈ¡µÇÂ½×´Ì¬Âë£¡
-	public String name, dengji;
+	public String name, vip;
 	public String sts = "1";
 
 	private boolean is_closed = false, str;
@@ -65,7 +65,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		quUser();
-		Log.v("TAG", "×´Ì¬Âð£º" + str + name + dengji);
 		setUpMenu();
 		setListener();
 		FragmentManager fm = getSupportFragmentManager();
@@ -93,9 +92,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		SharedPreferences ps = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
 		str = ps.getBoolean("isLogin", false);
 		name = ps.getString("username", "");
-		dengji = ps.getString("dengji", "");
+		vip = ps.getInt("vip", 1)+"";
 		if (str) {
-			info = new ResideMenuInfo(this, R.drawable.ic_launcher1, name, dengji);
+			info = new ResideMenuInfo(this, R.drawable.ic_login, name, vip);
 		} else {
 			info = new ResideMenuInfo(this, R.drawable.ic_login, "ÇëµÇÂ¼", "");
 		}

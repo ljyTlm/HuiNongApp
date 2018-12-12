@@ -3,6 +3,7 @@ package com.lanren.liangmall.sidemenu;
 import com.lanren.liangmall.R;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,12 +24,16 @@ public class ResideMenuInfo extends LinearLayout {
 		initViews(context);
 	}
 
-	public ResideMenuInfo(Context context, int icon, String title, String dengji) {
+	public ResideMenuInfo(Context context, int icon, String title, String vip) {
 		super(context);
 		initViews(context);
 		iv_icon.setImageResource(icon);
 		tv_username.setText(title);
-		tv_dengji.setText(dengji);
+		if ("2".equals(vip)) {
+			tv_dengji.setTextColor(Color.rgb(220, 20, 60));
+		}else {
+			tv_dengji.setTextColor(Color.rgb(119,136,153));
+		}
 	}
 
 	private void initViews(Context context) {
