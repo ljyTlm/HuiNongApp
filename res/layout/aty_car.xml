@@ -20,12 +20,6 @@
             android:text="我的购物车"
             android:textColor="@color/black"
             android:textSize="20sp" />
-		<Button 
-		    android:id="@+id/but_clean"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="结 算 全 部"/>
     </LinearLayout>
 
     <View

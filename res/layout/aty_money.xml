@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+	<TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="35dp"
+	    android:gravity="center"
+	    android:layout_gravity="center"
+	    android:text="我  的  钱  包 "
+	    android:textSize="20dp"
+	    android:textColor="@color/white"
+	    android:background="@drawable/home_background" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp" >
