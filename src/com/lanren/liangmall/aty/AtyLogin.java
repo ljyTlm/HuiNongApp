@@ -90,10 +90,13 @@ public class AtyLogin extends Activity implements OnClickListener {
 					Log.v("×¢Òâ£¡£¡", status+"");
 				}
 				if (status == 1 || status == 2) {
-					Intent i = new Intent(AtyLogin.this, MainActivity.class);
-					startActivity(i);
+					Intent intent = new Intent();
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+				    intent.setClass(AtyLogin.this,MainActivity.class);
+					startActivity(intent);
 					SaveUser(username, status);
 					Toast.makeText(AtyLogin.this, "¹§Ï²ÄúµÇÂ¼³É¹¦£¡", 1).show();
+					finish();
 				} else if (status == 0) {
 					Toast.makeText(AtyLogin.this, "ÕËºÅ»òÃÜÂë´íÎó,ÇëÖØĞÂµÇÂ½£¡", 1).show();
 				}
