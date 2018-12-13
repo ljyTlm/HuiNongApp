@@ -6,6 +6,7 @@ import java.util.List;
 import com.lanren.liangmall.R;
 import com.lanren.liangmall.adapter.FenLeiAdapter;
 import com.lanren.liangmall.entity.FenLeiEntity;
+import com.lanren.liangmall.net.NetHttpData;
 
 import android.R.integer;
 import android.app.Activity;
@@ -21,9 +22,11 @@ import android.widget.ListView;
 
 public class AtyFenLei extends Activity {
 	
+	final String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","在线农业专家咨询","前端最新农业技术"};
+	final String [] url = {NetHttpData.dataIp+"/HuiNong/home/data.html", NetHttpData.dataIp+"/HuiNong/home/data.html",NetHttpData.dataIp+"/HuiNong/home/data.html"};
+	
 	private ListView fListView;
-	private Handler mHandler = new Handler(){
-
+	private Handler mHandler = new Handler(){	
 		@Override
 		public void handleMessage(Message msg) {
 		
@@ -36,8 +39,6 @@ public class AtyFenLei extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fenlei_itme);
-		String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","在线农业专家咨询","前端最新农业技术"};
-		final String [] url = {};
 		int[] images = new int[] { R.drawable.hangqing, R.drawable.jiaoyi, 
 				R.drawable.zixun,R.drawable.jishu};
 		//将数据放到集合中去
