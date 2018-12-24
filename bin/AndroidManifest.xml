@@ -40,6 +40,7 @@
         <activity android:name="com.lanren.liangmall.aty.AtyMoney"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyFeedBack"></activity>
         <activity android:name="com.lanren.liangmall.aty.AtyInformation"></activity>
+        <activity android:name="com.lanren.liangmall.aty.AtyStore"></activity>
     </application>
 
 </manifest>

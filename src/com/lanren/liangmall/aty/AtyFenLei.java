@@ -22,25 +22,17 @@ import android.widget.ListView;
 
 public class AtyFenLei extends Activity {
 	
-	final String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","在线农业专家咨询","前端最新农业技术"};
-	final String [] url = {NetHttpData.dataIp+"/HuiNong/home/data.html", NetHttpData.dataIp+"/HuiNong/home/data.html",NetHttpData.dataIp+"/HuiNong/home/data.html"};
-	
+	final String[] txt = new String[]{"最新农业产品行情","在线农业产品交易","更多功能敬请期待"};
+	final String [] url = {NetHttpData.dataIp+"/HuiNong/home/data.html", "",NetHttpData.dataIp+"/HuiNong/home/help.html"};
+	final Class<?>[] cls = {AtyWebView.class, AtyStore.class, AtyWebView.class};
+	final int[] images = new int[] { R.drawable.hangqing, R.drawable.jiaoyi, R.drawable.zixun,R.drawable.jishu};
 	private ListView fListView;
-	private Handler mHandler = new Handler(){	
-		@Override
-		public void handleMessage(Message msg) {
-		
-			super.handleMessage(msg);
-		}
-		
-	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fenlei_itme);
-		int[] images = new int[] { R.drawable.hangqing, R.drawable.jiaoyi, 
-				R.drawable.zixun,R.drawable.jishu};
+		setContentView(R.layout.aty_fenlei);
+		
 		//将数据放到集合中去
 		List<FenLeiEntity> list = new  ArrayList<FenLeiEntity>();		
 		for (int i = 0; i < txt.length; i++) {
@@ -59,7 +51,7 @@ public class AtyFenLei extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Log.v("TAG", "itme位置："+position);
-				Intent intent = new Intent(AtyFenLei.this, AtyWebView.class);
+				Intent intent = new Intent(AtyFenLei.this, cls[position]);
 				intent.putExtra("url", url[position]);
 				startActivity(intent);
 			}

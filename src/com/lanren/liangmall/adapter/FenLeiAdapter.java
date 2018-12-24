@@ -43,7 +43,7 @@ public class FenLeiAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		fenLei f = null;
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.fenlei_view_itme, null);
+			convertView = LayoutInflater.from(context).inflate(R.layout.aty_fenlei_item, null);
 
 			f = new fenLei();
 			f.img = (ImageView) convertView.findViewById(R.id.fenlei_img);
