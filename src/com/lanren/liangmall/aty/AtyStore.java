@@ -32,7 +32,6 @@ public class AtyStore extends Activity{
 	ListView listView;
 	List<CommodityEntity> list;
 	StoreAdapter sAdapter;
-	Integer itemId;
 	Integer index;
 	
 	@Override
@@ -40,11 +39,12 @@ public class AtyStore extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aty_store);
+		list = new ArrayList<CommodityEntity>();
 		username = getUsername();
 		listView = (ListView)findViewById(R.id.listView1);
-		list = new ArrayList<CommodityEntity>();
 		getData();
 		setOnclik();
+		
 	}
 
 	private void setOnclik() {
@@ -53,15 +53,14 @@ public class AtyStore extends Activity{
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				itemId = (Integer)arg1.getTag(1);
-				index = (Integer)arg1.getTag(2);
+				index = (Integer)arg1.getTag();
 				new AlertDialog.Builder(AtyStore.this).setTitle("您确定要加入购物车嘛？")
                 .setIcon(android.R.drawable.sym_def_app_icon)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //按下确定键后的事件
-                    	NetHttpData.getHttpDao().getStore(username, itemId, 1, new JsonHttpResponseHandler(){
+                    	NetHttpData.getHttpDao().getStore(username, sAdapter.list.get(index).getId(), 1, new JsonHttpResponseHandler("utf-8"){
                     		@Override
                     		public void onFailure(int statusCode,Header[] headers, Throwable throwable,JSONObject errorResponse) {
                     			// TODO Auto-generated method stub
@@ -69,12 +68,17 @@ public class AtyStore extends Activity{
                     			Toast.makeText(AtyStore.this, "抱歉此商品暂无货 请刷新!", Toast.LENGTH_LONG).show();
                     		}
                     		@Override
-                    		public void onSuccess(int statusCode,Header[] headers, JSONObject response) {
-                    			// TODO Auto-generated method stub
-                    			super.onSuccess(statusCode, headers, response);
-                    			sAdapter.list.remove(index);
-                    			listView.setAdapter(sAdapter);
-                    		}
+                			public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                				// TODO Auto-generated method stub
+                				super.onSuccess(statusCode, headers, response);
+                				if (response.optBoolean(0)) {
+                					list.remove(index);
+                					sAdapter.notifyDataSetChanged();
+                    				Toast.makeText(AtyStore.this, "添加成功！", Toast.LENGTH_LONG).show();
+								}else {
+									Toast.makeText(AtyStore.this, "添加失败！", Toast.LENGTH_LONG).show();
+								}
+                			}
                     	});
                     }
                 }).setNegativeButton("取消",null).show();
@@ -85,7 +89,7 @@ public class AtyStore extends Activity{
 
 	private void getData() {
 		// TODO Auto-generated method stub
-		NetHttpData.getHttpDao().getStore(username, -1, 0, new JsonHttpResponseHandler(){
+		NetHttpData.getHttpDao().getStore(username, -1, 0, new JsonHttpResponseHandler("utf-8"){
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				// TODO Auto-generated method stub
@@ -99,7 +103,7 @@ public class AtyStore extends Activity{
 				for (int i = 0; i < response.length(); i++) {
 					CommodityEntity cEntity = new CommodityEntity();
 					cEntity.setName(response.optJSONObject(i).optString("name"));
-					cEntity.setSellername(response.optJSONObject(i).optString("sellerName"));
+					cEntity.setSellername(response.optJSONObject(i).optString("sellername"));
 					cEntity.setId(response.optJSONObject(i).optInt("id"));
 					cEntity.setPrice(response.optJSONObject(i).optDouble("price"));
 					cEntity.setStatus(response.optJSONObject(i).optInt("status"));

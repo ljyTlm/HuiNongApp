@@ -52,8 +52,7 @@ public class StoreAdapter extends BaseAdapter {
 		tView1.setText(list.get(arg0).getName());
 		tView2.setText(list.get(arg0).getSellername());
 		tView3.setText(list.get(arg0).getPrice().toString());
-		view.setTag(1, list.get(arg0).getId());
-		view.setTag(2, arg0);
+		view.setTag(arg0);
 		return view;
 	}
 

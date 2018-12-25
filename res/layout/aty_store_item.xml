@@ -18,16 +18,6 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_sellername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txt_price"
-        android:layout_alignBottom="@+id/txt_price"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/txt_ctnname"
-        android:text="卖家姓名" />
-
-    <TextView
         android:id="@+id/txt_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,5 +38,13 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/txt_price"
         android:background="@color/burlywood" />
+
+    <TextView
+        android:id="@+id/txt_sellername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_name"
+        android:layout_centerHorizontal="true"
+        android:text="卖家姓名" />
 
 </RelativeLayout>
