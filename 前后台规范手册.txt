@@ -57,7 +57,12 @@
 	回调：list[obj:{title, imgname, url}]
 	功能：获取最新咨询
 	
-8.
+8.在线农产品交易界面
+	安卓端接口：getStore
+	web端接口：AtyGetStore
+	参数：username operation[0:获取所有商品,1:添加到购物车] id
+	回调：list[obj:{name, seller, price}]
+	功能：完成产品交易功能
 
 	
 9.购物车

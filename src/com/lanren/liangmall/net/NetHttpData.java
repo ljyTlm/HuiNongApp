@@ -147,4 +147,20 @@ public class NetHttpData {
 		
 	}
 
+	/**
+	 * 获取所有的商品信息、加入购物车
+	 * @param username
+	 * @param i
+	 * @param jsonHttpResponseHandler
+	 */
+	public void getStore(String username, Integer id,Integer operation, JsonHttpResponseHandler responseHandler) {
+		// TODO Auto-generated method stub
+		String url = dataIp+"/HuiNong/AtyGetStore";
+		RequestParams params = new RequestParams();
+		params.add("username", username.toString());
+		params.add("operation", operation.toString());
+		params.add("id", id.toString());
+		client.post(url, params, responseHandler);
+	}
+
 }

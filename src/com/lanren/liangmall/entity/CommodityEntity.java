@@ -5,7 +5,7 @@ import android.R.integer;
 public class CommodityEntity {
 	Integer id;
 	String name;
-	Integer price;
+	Double price;
 	String sellername;
 	Integer status;
 	public Integer getId() {
@@ -20,10 +20,10 @@ public class CommodityEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getSellername() {
