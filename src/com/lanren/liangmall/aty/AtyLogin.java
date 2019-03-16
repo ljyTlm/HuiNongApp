@@ -64,9 +64,35 @@ public class AtyLogin extends Activity implements OnClickListener {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(AtyLogin.this, AtyWebView.class);
-				intent.putExtra("url", NetHttpData.getHttpDao().dataIp+"/HuiNong/Register");
-				startActivity(intent);
+				username = edtname.getText().toString();
+				userpwd = edtpwd.getText().toString();
+				if ("".equals(username) || "".equals(userpwd)) {
+					Toast.makeText(AtyLogin.this, "账号或密码为空！ 请重新填写！", 1).show();
+					return;
+				}
+				NetHttpData.getHttpDao().getLogin(username, userpwd, 0, new JsonHttpResponseHandler("utf-8"){
+					
+					@Override
+					public void onFailure(int statusCode, Header[] headers,Throwable throwable, JSONObject errorResponse) {
+						Toast.makeText(AtyLogin.this, "注册失败！！ 请检查网络连接！"+errorResponse, 1).show();
+						super.onFailure(statusCode, headers, throwable, errorResponse);
+					}
+					
+					@Override
+					public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+						// TODO Auto-generated method stub
+						int status = response.optInt("status");
+						if (status == 0) {
+							Toast.makeText(AtyLogin.this, "注册失败！该用户已存在！！！", 1).show();
+						}else {
+							Toast.makeText(AtyLogin.this, "注册成功！请点击登录！！", 1).show();
+						}
+					}
+				});
+				
+//				Intent intent = new Intent(AtyLogin.this, AtyWebView.class);
+//				intent.putExtra("url", NetHttpData.getHttpDao().dataIp+"/HuiNong/Register");
+//				startActivity(intent);
 			}
 		});
 	}
@@ -75,7 +101,7 @@ public class AtyLogin extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		username = edtname.getText().toString();
 		userpwd = edtpwd.getText().toString();
-		NetHttpData.getHttpDao().getLogin(username, userpwd, new JsonHttpResponseHandler("utf-8") {
+		NetHttpData.getHttpDao().getLogin(username, userpwd, 1, new JsonHttpResponseHandler("utf-8") {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
@@ -86,9 +112,6 @@ public class AtyLogin extends Activity implements OnClickListener {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				int status = response.optInt("status");
-				for (int i = 0; i < 10; i++) {
-					Log.v("注意！！", status+"");
-				}
 				if (status == 1 || status == 2) {
 					Intent intent = new Intent();
 					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

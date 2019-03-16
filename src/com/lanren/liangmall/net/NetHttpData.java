@@ -15,9 +15,9 @@ import com.loopj.android.http.ResponseHandlerInterface;
 public class NetHttpData {
 	
 	//public static String dataIp="http://192.168.43.176:8080";
-	public static String dataIp="http://192.168.200.138:8080";
+	//public static String dataIp="http://192.168.200.138:8080";
 	//public static String dataIp="http://192.168.1.107:8080";
-	//public static String dataIp="http://192.168.1.104:8080";
+	public static String dataIp="http://192.168.0.102:8080";
 	
 	private static AsyncHttpClient client = null ;
 	private static NetHttpData nethttpdao = null ;
@@ -45,11 +45,12 @@ public class NetHttpData {
 	 * @param userpwd
 	 * @param responseHandler
 	 */
-	public void getLogin(String username,String userpwd,JsonHttpResponseHandler responseHandler){
+	public void getLogin(String username,String userpwd, Integer operation, JsonHttpResponseHandler responseHandler){
 		String url = dataIp+"/HuiNong/AtyLogin";
 		RequestParams params = new RequestParams();
 		params.add("username", username);
 		params.add("userpwd", userpwd);
+		params.add("operation", operation.toString());
 		client.post(url, params, responseHandler);
 	}
 	/**

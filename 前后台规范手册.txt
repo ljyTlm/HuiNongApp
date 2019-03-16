@@ -1,9 +1,15 @@
+安卓端开发平台：eclipse  服务器端开发平台：eclipse 
+版本控制：git  
+项目仓库：github 安卓端：https://github.com/ljyTlm/HuiNongApp 服务器端:https://github.com/ljyTlm/HuiNongWeb
+包管理：maven
+数据库：mysql
+
 1.登录界面
 	安卓端接口：getLogin
 	web端接口：AtyLogin
-	参数：username userpwd
+	参数：username userpwd operation[0:注册, 1:登录]
 	回调：status[0:登录失败,1:登录成功不是会员,2:登录成功是会员]
-	功能：登录
+	功能：注册 登录
 	
 2.会员服务
 	(1)开通会员
